@@ -7,11 +7,6 @@ const TOKEN = process.env.TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
 const GUILD_ID = process.env.GUILD_ID;
 
-console.log(GUILD_ID)
-
-
-
-
 const client = new Client({ 
     intents:[
         GatewayIntentBits.Guilds,
@@ -25,13 +20,25 @@ const rest = new REST ({ version: '10'}).setToken(TOKEN)
 client.on('ready', ()=>{console.log(`${client.user.username} has logged in!`)})
 
 client.on('interactionCreate', (interaction)=>{
-    
+    if(interaction.isChatInputCommand()){
+        console.log('henlo world');
+        interaction.reply({content: 'Hey there!!!!!'})
+        console.log(interaction.options.getString('command-name'));
+    }
 })
 async function main() {
 
     const commands = [{ 
-        name: 'ping',
-        description: 'Replies with Pong!',
+        name: 'askgit',
+        description: 'Query the gitdocs for a method',
+        options:[
+            {
+                name: 'command-name',
+                description: 'the name of the command you wish to query',
+                type: 3, // (3) option type string
+                required: true,
+            }
+        ]
     }];
 
     try{
