@@ -1,6 +1,7 @@
 import { config } from 'dotenv'
 import { Client, GatewayIntentBits, Routes } from 'discord.js'
 import { REST } from '@discordjs/rest';
+import finder from "./finder.js";
 
 config();
 const TOKEN = process.env.TOKEN;
@@ -22,8 +23,12 @@ client.on('ready', ()=>{console.log(`${client.user.username} has logged in!`)})
 client.on('interactionCreate', (interaction)=>{
     if(interaction.isChatInputCommand()){
         console.log('henlo world');
-        interaction.reply({content: 'Hey there!!!!!'})
+        
         console.log(interaction.options.getString('command-name'));
+        let information = finder(interaction.options.getString('command-name'))
+        // interaction.reply({content:"hello I'm bonsi buddy"})
+        interaction.reply({content: information})
+        
     }
 })
 async function main() {
