@@ -265,4 +265,4 @@ git-reset[1] is about updating your branch, moving the tip in order to add or re
 
 git reset can also be used to restore the index, overlapping with git restore.`
 
-export default porcelainCommands
+export default porcelainCommands;
