@@ -1,5 +1,5 @@
-import porcelainCommands from 'porcelain';
-import {ancillary, repository, others} from 'lower-level';
+import porcelainCommands from './library/porcelain.js';
+import {ancillary, repository, others} from './library/lower-level.js';
 
 
 
@@ -49,7 +49,7 @@ const finder = (gitCommand) =>{
     searcher(ancillary);
     searcher(repository);
     searcher(others);
-    return finalArray
+    return finalArray.join(' ')
 }
 
 // console.log(finder('git-reset'));
