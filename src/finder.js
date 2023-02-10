@@ -4,7 +4,6 @@ import {ancillary, repository, others} from './library/lower-level.js';
 
 
 const finder = (gitCommand) =>{
-
     let finalArray = []
 
     function searcher(stringToBeSearched){
