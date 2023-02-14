@@ -34,13 +34,25 @@ client.on('interactionCreate', (interaction)=>{
 async function main() {
 
     const commands = [{ 
-        name: 'askgit',
+        name: 'gitask',
         description: 'Query the gitdocs for a method',
         options:[
             {
                 name: 'command-name',
                 description: 'the name of the command you wish to query',
                 type: 3, // (3) option type string
+                required: true,
+            }
+        ]
+    },
+    {
+        name: 'gitdive',
+        description: 'get a full page of descriptions of the options of a command',
+        options:[
+            {
+                name: 'command-name',
+                description: 'the name of a command you wish to dive into',
+                type: 3, //once again a string option command
                 required: true,
             }
         ]
