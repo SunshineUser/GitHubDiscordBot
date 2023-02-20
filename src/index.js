@@ -2,6 +2,7 @@ import { config } from 'dotenv'
 import { Client, GatewayIntentBits, Routes } from 'discord.js'
 import { REST } from '@discordjs/rest';
 import finder from "./finder.js";
+import { gitOutput } from './library/deepCommands/commandList.js';
 
 config();
 const TOKEN = process.env.TOKEN;
@@ -26,8 +27,12 @@ client.on('interactionCreate', (interaction)=>{
         
         console.log(interaction.options.getString('command-name'));
         let information = finder(interaction.options.getString('command-name'))
+        // information? interaction.reply({content: information}):
+
+        // let otherInformation = interaction.options.getString('command-name')
+        
         // interaction.reply({content:"hello I'm bonsi buddy"})
-        interaction.reply({content: information})
+        
         
     }
 })
